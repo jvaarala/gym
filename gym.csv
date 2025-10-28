@@ -1,5 +1,5 @@
 activityDay,activityOrderNr,activity,warmup,setsMin,setsMax,repsMin,repsMax,repsUnit,instructionVideo1,instructionVideo2
-test,0,"Test",,,,,,,,
+monday,0,"Test",,,,,,,,
 monday,0,"Light cardio (rower, treadmill incline walk)",1,1,1,5,10,minutes,,
 monday,1,Dynamic shoulder stretches and band pull-aparts,1,1,1,5,10,minutes,https://www.youtube.com/watch?v=uorIsoPLjsE,https://www.youtube.com/watch?v=pASXdGKh-nc
 monday,2,Barbell or Dumbbell Bench Press,0,3,4,6,10,repetitions,https://www.youtube.com/watch?v=SCVCLChPQFY,https://www.youtube.com/watch?v=ZaDlbm8E8Tg
@@ -15,3 +15,4 @@ thrusday,3,One-Arm Dumbbell Row,0,3,3,10,10,repetitions,https://www.youtube.com/
 thrusday,4,Dumbbell Reverse Fly or Face Pull,0,3,3,12,15,repetitions,https://www.youtube.com/watch?v=hYXnvBRA_SE,https://www.youtube.com/watch?v=5ZC4LagfDQ4
 thrusday,5,Bulgarian Split Squat or Goblet Squat,0,3,3,10,12,repetitions,https://www.youtube.com/watch?v=8kvZmrlOo2M,https://www.youtube.com/watch?v=TysYZ7rKhpM
 thrusday,6,Core Stability: Plank Variations or Pallof Press,0,3,3,30,45,seconds,https://www.youtube.com/watch?v=ao5nY7lb088,https://www.youtube.com/watch?v=suXbr509tFQ
+
