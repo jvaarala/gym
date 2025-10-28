@@ -1,0 +1,16 @@
+activityDay,activityOrderNr,activity,warmup,setsMin,setsMax,repsMin,repsMax,repsUnit,instructionVideo1,instructionVideo2
+monday,0,"Light cardio (rower, treadmill incline walk)",1,1,1,5,10,minutes,,
+monday,1,Dynamic shoulder stretches and band pull-aparts,1,1,1,5,10,minutes,https://www.youtube.com/watch?v=uorIsoPLjsE,https://www.youtube.com/watch?v=pASXdGKh-nc
+monday,2,Barbell or Dumbbell Bench Press,0,3,4,6,10,repetitions,https://www.youtube.com/watch?v=SCVCLChPQFY,https://www.youtube.com/watch?v=ZaDlbm8E8Tg
+monday,3,Incline Dumbbell Press,0,3,3,8,12,repetitions,https://www.youtube.com/watch?v=jMQA3XtJSgo,
+monday,4,Seated Shoulder Press (DB or machine),0,3,3,8,10,repetitions,https://www.youtube.com/watch?v=RgkzQ008m3I,
+monday,5,Dumbbell Lateral Raise,0,3,3,12,15,repetitions,https://www.youtube.com/watch?v=8aUc9snLOxU,
+monday,6,Cable Triceps Pushdown,0,3,3,10,15,repetitions,https://www.youtube.com/watch?v=y6EdXBdL75A,
+monday,7,Core Finisher: Hanging Leg Raises,0,3,3,12,15,repetitions,,
+thrusday,0,Light cardio + hip mobility work,1,1,1,5,10,minutes,,
+thrusday,1,Deadlift (or Romanian Deadlift),0,3,4,5,8,repetitions,https://www.youtube.com/watch?v=TN3DHmd1Fe8,https://www.youtube.com/watch?v=bT5OOBgY4bc
+thrusday,2,Pull-Ups or Lat Pulldown,0,3,3,8,12,repetitions,https://www.youtube.com/watch?v=jgFel4wZl3I,https://www.youtube.com/watch?v=PEv0gTcMY3g
+thrusday,3,One-Arm Dumbbell Row,0,3,3,10,10,repetitions,https://www.youtube.com/watch?v=_LJQDmOcTbE,https://www.youtube.com/watch?v=ZRSGpBUVcNw
+thrusday,4,Dumbbell Reverse Fly or Face Pull,0,3,3,12,15,repetitions,https://www.youtube.com/watch?v=hYXnvBRA_SE,https://www.youtube.com/watch?v=5ZC4LagfDQ4
+thrusday,5,Bulgarian Split Squat or Goblet Squat,0,3,3,10,12,repetitions,https://www.youtube.com/watch?v=8kvZmrlOo2M,https://www.youtube.com/watch?v=TysYZ7rKhpM
+thrusday,6,Core Stability: Plank Variations or Pallof Press,0,3,3,30,45,seconds,https://www.youtube.com/watch?v=ao5nY7lb088,https://www.youtube.com/watch?v=suXbr509tFQ

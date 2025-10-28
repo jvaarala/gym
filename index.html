@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5568d3;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --card-shadow-hover: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .workout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .day-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .day-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: var(--primary-dark);
+        }
+
+        .exercise {
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+
+        .exercise:hover {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            transform: translateX(5px);
+        }
+
+        .exercise.warmup {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-left-color: #ff8a5b;
+        }
+
+        .exercise-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warmup-badge {
+            background: #ff8a5b;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .exercise-details {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #4a5568;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .detail-value {
+            background: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .video-links {
+            margin-top: 0.8rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .video-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .stats-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .workout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exercise-details {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Workout Program</h1>
+        </header>
+
+        <div class="workout-grid" id="workouts"></div>
+    </div>
+
+    <footer>
+        <p>Stay consistent. Train smart. Get strong. 🚀</p>
+    </footer>
+
+    <script>
+        // Status helper (inserts a lightweight banner above workouts)
+        const workoutsContainer = document.getElementById('workouts');
+        function setStatus(message, type = 'info') {
+            // Remove an existing banner first
+            const existing = document.getElementById('status-banner');
+            if (existing) existing.remove();
+            if (!message) return;
+            const banner = document.createElement('div');
+            banner.id = 'status-banner';
+            banner.style.margin = '0 0 1rem 0';
+            banner.style.padding = '0.75rem 1rem';
+            banner.style.borderRadius = '12px';
+            banner.style.fontWeight = '600';
+            banner.style.boxShadow = 'var(--card-shadow)';
+            banner.style.background = type === 'error' ? '#ffe6e6' : '#eef2ff';
+            banner.style.color = type === 'error' ? '#991b1b' : '#3730a3';
+            banner.innerHTML = message;
+            workoutsContainer.parentNode.insertBefore(banner, workoutsContainer);
+        }
+
+        // Load CSV from file using fetch (works when served over http from same origin)
+        async function loadCSV(url) {
+            const res = await fetch(url, { cache: 'no-store' });
+            if (!res.ok) {
+                throw new Error(`Failed to load ${url}: ${res.status} ${res.statusText}`);
+            }
+            return await res.text();
+        }
+
+        // Parse CSV
+        function parseCSV(csv) {
+            // Normalize newlines and split lines
+            const lines = csv.replace(/\r\n?/g, '\n').trim().split('\n');
+            const headers = lines[0].split(',');
+            
+            return lines.slice(1).map(line => {
+                // Handle quoted fields
+                const values = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (let char of line) {
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        values.push(current);
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                values.push(current);
+                
+                const obj = {};
+                headers.forEach((header, i) => {
+                    obj[header] = (values[i] ?? '').trim();
+                });
+                return obj;
+            });
+        }
+
+        // Group exercises by day
+        function groupByDay(exercises) {
+            const grouped = {};
+            exercises.forEach(exercise => {
+                const day = exercise.activityDay;
+                if (!grouped[day]) {
+                    grouped[day] = [];
+                }
+                grouped[day].push(exercise);
+            });
+            return grouped;
+        }
+
+        // Format exercise details
+        function formatExerciseDetails(exercise) {
+            let details = '';
+            
+            const sets = exercise.setsMin === exercise.setsMax 
+                ? exercise.setsMin 
+                : `${exercise.setsMin}-${exercise.setsMax}`;
+            
+            const reps = exercise.repsMin === exercise.repsMax 
+                ? exercise.repsMin 
+                : `${exercise.repsMin}-${exercise.repsMax}`;
+            
+            details += `
+                <div class="detail-item">
+                    <span class="detail-label">Sets:</span>
+                    <span class="detail-value">${sets}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">${exercise.repsUnit === 'repetitions' ? 'Reps' : 'Duration'}:</span>
+                    <span class="detail-value">${reps} ${exercise.repsUnit === 'repetitions' ? '' : exercise.repsUnit}</span>
+                </div>
+            `;
+            
+            return details;
+        }
+
+        // Format video links
+        function formatVideoLinks(exercise) {
+            const videos = [];
+            if (exercise.instructionVideo1) {
+                videos.push(exercise.instructionVideo1);
+            }
+            if (exercise.instructionVideo2) {
+                videos.push(exercise.instructionVideo2);
+            }
+            
+            if (videos.length === 0) {
+                return '';
+            }
+            
+            let html = '<div class="video-links">';
+            videos.forEach((url, index) => {
+                html += `
+                    <a href="${url}" target="_blank" class="video-link">
+                        📹 Video
+                    </a>
+                `;
+            });
+            html += '</div>';
+            
+            return html;
+        }
+
+        // Get day icon
+        function getDayIcon(day) {
+            const icons = {
+                'monday': '🏋️',
+                'thrusday': '💪',
+                'tuesday': '🔥',
+                'wednesday': '⚡',
+                'friday': '💯',
+                'saturday': '🎯',
+                'sunday': '🌟'
+            };
+            return icons[day.toLowerCase()] || '🏃';
+        }
+
+        // Render workouts
+        function renderWorkouts(exercises) {
+            const groupedByDay = groupByDay(exercises);
+            const workoutsContainer = document.getElementById('workouts');
+            
+            Object.entries(groupedByDay).forEach(([day, dayExercises]) => {
+                dayExercises.sort((a, b) => parseInt(a.activityOrderNr) - parseInt(b.activityOrderNr));
+                
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+                
+                let exercisesHTML = '';
+                dayExercises.forEach(exercise => {
+                    const isWarmup = exercise.warmup === '1';
+                    const warmupClass = isWarmup ? 'warmup' : '';
+                    const warmupBadge = isWarmup ? '<span class="warmup-badge">Warmup</span>' : '';
+                    
+                    exercisesHTML += `
+                        <div class="exercise ${warmupClass}">
+                            <div class="exercise-name">
+                                ${exercise.activity}
+                                ${warmupBadge}
+                            </div>
+                            <div class="exercise-details">
+                                ${formatExerciseDetails(exercise)}
+                            </div>
+                            ${formatVideoLinks(exercise)}
+                        </div>
+                    `;
+                });
+                
+                dayCard.innerHTML = `
+                    <div class="day-header">
+                        <div class="day-icon">${getDayIcon(day)}</div>
+                        <h2 class="day-title">${day}</h2>
+                    </div>
+                    ${exercisesHTML}
+                `;
+                
+                workoutsContainer.appendChild(dayCard);
+            });
+        }
+
+        // Initialize: fetch CSV then render
+        (async function init() {
+            try {
+                setStatus('Loading program…');
+                const csvText = await loadCSV('gym.csv');
+                const exercises = parseCSV(csvText);
+                // Clear previous content and status
+                workoutsContainer.innerHTML = '';
+                setStatus('');
+                renderWorkouts(exercises);
+            } catch (err) {
+                console.error(err);
+                setStatus(
+                    'Could not load gym.csv. If you opened this file directly (file://), please run a local server and open via http:// instead. Example: <code>python3 -m http.server 8000</code> then visit <code>http://localhost:8000/index.html</code>.',
+                    'error'
+                );
+            }
+        })();
+    </script>
+</body>
+</html>
