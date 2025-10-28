@@ -1,4 +1,5 @@
 activityDay,activityOrderNr,activity,warmup,setsMin,setsMax,repsMin,repsMax,repsUnit,instructionVideo1,instructionVideo2
+test,0,"Test",,,,,,,,
 monday,0,"Light cardio (rower, treadmill incline walk)",1,1,1,5,10,minutes,,
 monday,1,Dynamic shoulder stretches and band pull-aparts,1,1,1,5,10,minutes,https://www.youtube.com/watch?v=uorIsoPLjsE,https://www.youtube.com/watch?v=pASXdGKh-nc
 monday,2,Barbell or Dumbbell Bench Press,0,3,4,6,10,repetitions,https://www.youtube.com/watch?v=SCVCLChPQFY,https://www.youtube.com/watch?v=ZaDlbm8E8Tg
