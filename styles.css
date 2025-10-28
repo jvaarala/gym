@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2a2a2a;
+    --primary-light: #3a3a3a;
+    --secondary: #1a1a1a;
+    --accent: #c0a062;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --bg-dark: #0f0f0f;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f0f;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: #e0e0e0;
+    letter-spacing: -0.01em;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.day-card {
+    background: #1a1a1a;
+    border-radius: 2px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+    border: 1px solid #2a2a2a;
+}
+
+.day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: #3a3a3a;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.day-icon {
+    width: 4px;
+    height: 40px;
+    background: #c0a062;
+    border-radius: 0;
+}
+
+.day-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+}
+
+.exercise {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: #222222;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    border-left: 2px solid #3a3a3a;
+    position: relative;
+}
+
+.exercise:hover {
+    background: #2a2a2a;
+    transform: translateX(4px);
+    border-left-color: #c0a062;
+}
+
+.exercise.warmup {
+    background: #252525;
+    border-left-color: #8a7a52;
+}
+
+.exercise.done {
+    opacity: 0.6;
+    background: #1a2a1a;
+    border-left-color: #62c08a;
+}
+
+.done-btn {
+    display: block;
+    width: 100%;
+    margin: 1.2rem 0 0 0;
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #62c08a 0%, #c0a062 100%);
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(98, 192, 138, 0.15);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    letter-spacing: 0.05em;
+}
+
+.done-btn:hover {
+    background: linear-gradient(90deg, #c0a062 0%, #62c08a 100%);
+    color: #fff;
+    transform: scale(1.03);
+}
+
+.exercise-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.warmup-badge {
+    background: #8a7a52;
+    color: #ffffff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.exercise-details {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #a0a0a0;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #c0a062;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.detail-value {
+    background: #2a2a2a;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.video-links {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #2a2a2a;
+    color: #c0a062;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #3a3a3a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.video-link:hover {
+    background: #3a3a3a;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(192, 160, 98, 0.2);
+    border-color: #c0a062;
+}
+
+.stats-container {
+    background: #1a1a1a;
+    border-radius: 2px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease-out 0.2s backwards;
+    border: 1px solid #2a2a2a;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-card {
+    background: #222222;
+    color: #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2a2a2a;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #c0a062;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .workout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exercise-details {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
+
+footer {
+    text-align: center;
+    color: #a0a0a0;
+    padding: 2rem;
+    opacity: 0.6;
+}
